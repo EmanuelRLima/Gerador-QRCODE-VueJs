@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <p>{{contador}}</p>
+        <p>
+            <!--@ = v-on:-->
+            <button @click="add">more one</button>
+
+            <input type="text" v-model="nome" @keyup.enter="alert">
+            <span>{{ nome }}</span> 
+        </p>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                nome: "x",
+                contador: 0
+            },
+            methods:{
+                add(){
+                    this.contador++
+                },
+
+            alerta() {
+                alert()
+            },
+
+        }
+    } )
+    </script>
+</body>
+</html>

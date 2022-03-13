@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="js/vue.min.js"></script>
+    <script src="js/qrious.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Gerador de QRCode VUEJS</title>
+</head>
+
+<body>
+    <nav>
+        <a href="#"> <img class="logo" src="src/ER.png" alt="Logo"> </a>
+             <a class="links" href="https://github.com/EmanuelRLima"> Github </a>  
+     </nav>
+
+    <div id="code">
+        <h1>{{title}}</h1>
+        
+        <div>
+            <input type="text" size="25" 
+            placeholder="Digite para criar seu próprio QRcode..." 
+            v-model="text">
+        </div>
+
+        <div v-if="text" class="output">
+            <img :src="newQRCode" alt="QRcode">
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#code',
+            data: {
+                title: 'Gerador de QRCode',
+                text: 'https://portfolio-web-95b66.web.app',
+                qrcode: new QRious({size:300})
+            },
+            computed: {
+                newQRCode(){
+                    this.qrcode.value = this.text
+                    return this.qrcode.toDataURL()
+                }
+            }
+            
+        })
+    </script>
+</body>
+
+</html>

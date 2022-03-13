@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Conceitos Básicos</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <p> 1) {{2 + 2}}</p>
+        <p>2) Meu nome é {{nome}}, Tenho {{idade}} de idade, e moro em {{cidade}}, e é dia: {{horaCerta()}}</p>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                nome: 'Emanuel',
+                idade: 21,
+                cidade: 'Natal/Rn'
+            },
+            methods:{
+                horaCerta() {
+                    return new Date().toLocaleDateString()
+                }
+            },
+            computed: {
+                
+            }
+        })
+    </script>
+</body>
+</html>
