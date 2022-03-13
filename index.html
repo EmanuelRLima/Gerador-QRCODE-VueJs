@@ -29,6 +29,24 @@
             <img :src="newQRCode" alt="QRcode">
         </div>
     </div>
+    
+        <script>
+        new Vue({
+            el: '#code',
+            data: {
+                title: 'Gerador de QRCode',
+                text: 'https://portfolio-web-95b66.web.app',
+                qrcode: new QRious({size:300})
+            },
+            computed: {
+                newQRCode(){
+                    this.qrcode.value = this.text
+                    return this.qrcode.toDataURL()
+                }
+            }
+            
+        })
+    </script>
 
 </body>
 
